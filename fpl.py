@@ -22,7 +22,7 @@ class FPL:
 
     def fpl_request(self):
         return requests.get(API_URLS['static']).json()
-
+ 
     def format_data(self, data):
         return data
 
