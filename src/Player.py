@@ -16,8 +16,8 @@ class Player:
 
     # Points per 90 min
     def pp90(self):
-        return round((self.total_points/self.minutes)*90, 1)
+        return round(self.total_points / self.minutes * 90, 1)
 
-    # Points per cost
-    def ppcost(self):
-        return round(self.total_points/(self.now_cost*0.1), 1)
+    # Points per million
+    def ppm(self):
+        return round(self.total_points / (self.now_cost * 0.1), 1)

@@ -1,5 +1,5 @@
 import requests
-from src import Player
+from src import Player, Team
 from utils import *
 
 BASE_URL = 'https://fantasy.premierleague.com/api/'
@@ -30,6 +30,13 @@ class FPL:
                 if lowercase(player_id) == lowercase(player_name):
                     return Player.Player(player)
 
+    def get_team(self, team_id):
+        for team in self.teams:
+            if type(team_id) is int and team_id == team['id']:
+                return Team.Team(team)
+            if type(team_id) is str and lowercase(team_id) == lowercase(team['name']):
+                return Team.Team(team)
+
     # @property
     # def events(self):
     #     return self._events
@@ -49,5 +56,5 @@ class FPL:
 
 if __name__ == '__main__':
     fpl = FPL()
-    p = fpl.get_player('ozil')
-    print(p.web_name)
+    t = fpl.get_team(2)
+    print(t.short_name)
