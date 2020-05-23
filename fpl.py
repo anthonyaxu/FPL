@@ -12,7 +12,7 @@ API_URLS = {
 
 """
 FPL attributes: events, game_settings, phases, teams, total_players, 
-                  elements, element_stats, element_types
+                elements, element_stats, element_types
 """
 
 class FPL:
@@ -56,5 +56,5 @@ class FPL:
 
 if __name__ == '__main__':
     fpl = FPL()
-    t = fpl.get_team(2)
+    t = fpl.get_team('aston villa')
     print(t.short_name)
