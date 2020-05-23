@@ -1,3 +1,6 @@
+import requests
+from fpl import BASE_URL, API_URLS
+from . import Player
 
 """
 Team attributes: code, win, draw, lose, form, id, name, short_name, player, points,
@@ -11,4 +14,10 @@ class Team:
         for attribute, value in information.items():
             setattr(self, attribute, value)
 
-    # def team_players(self, )
+    # Return all players in each team
+    def get_players(self, players = []):
+        elements = requests.get(API_URLS['static']).json()['elements']
+        for player in elements:
+            if player['team'] == self.id:
+                players.append(Player.Player(player))
+        return players

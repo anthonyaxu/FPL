@@ -56,5 +56,6 @@ class FPL:
 
 if __name__ == '__main__':
     fpl = FPL()
-    t = fpl.get_team('aston villa')
-    print(t.short_name)
+    t = fpl.get_team('Chelsea')
+    for p in t.get_players():
+        print(p.web_name)
