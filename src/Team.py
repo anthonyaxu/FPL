@@ -21,3 +21,11 @@ class Team:
             if player['team'] == self.id:
                 players.append(Player.Player(player))
         return players
+
+    # Sum of FPL points for every player in the team
+    def total_points(self):
+        total_points = 0
+        players = self.get_players()
+        for player in players:
+            total_points += player.total_points
+        return total_points

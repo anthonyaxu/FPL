@@ -29,6 +29,7 @@ class FPL:
                 player_name = deaccent(player['web_name'])
                 if lowercase(player_id) == lowercase(player_name):
                     return Player.Player(player)
+        return None
 
     def get_team(self, team_id):
         for team in self.teams:
@@ -36,6 +37,7 @@ class FPL:
                 return Team.Team(team)
             if type(team_id) is str and lowercase(team_id) == lowercase(team['name']):
                 return Team.Team(team)
+        return None
 
     # @property
     # def events(self):
@@ -57,5 +59,6 @@ class FPL:
 if __name__ == '__main__':
     fpl = FPL()
     t = fpl.get_team('Chelsea')
-    for p in t.get_players():
-        print(p.web_name)
+    print(t.total_points())
+    # for p in t.get_players():
+    #     print(p.web_name)
